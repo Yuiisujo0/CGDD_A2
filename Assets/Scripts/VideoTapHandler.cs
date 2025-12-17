@@ -16,4 +16,12 @@ public class VideoTapHandler : MonoBehaviour
         else
             videoPlayer.Play();
     }
+
+    void Update()
+    {
+        if (videoPlayer != null && AppSettings.Instance != null)
+        {
+            videoPlayer.SetDirectAudioVolume(0, AppSettings.Instance.videoVolume);
+        }
+    }
 }

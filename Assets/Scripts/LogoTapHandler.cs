@@ -31,8 +31,12 @@ public class LogoTapHandler : MonoBehaviour
     
         // Read autoplay setting
         bool autoplay = PlayerPrefs.GetInt("VideoAutoplay", 1) == 1;
+
         if (videoPlayer != null)
         {
+            // Set video volume from AppSettings
+            if (AppSettings.Instance != null)
+                videoPlayer.SetDirectAudioVolume(0, AppSettings.Instance.videoVolume);
 
             if (autoplay)
                 videoPlayer.Play();

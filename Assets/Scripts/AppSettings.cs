@@ -9,9 +9,13 @@ public class AppSettings : MonoBehaviour
     [Header("Video Settings")]
     public bool videoAutoplay = true;
 
+    [Header("Audio Settings")]
+    [Range(0f, 1f)]
+    public float videoVolume = 1f; // default full volume
+
     void Awake()
-{
-    if (Instance != null && Instance != this)
+    {
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
@@ -21,4 +25,3 @@ public class AppSettings : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 }
-

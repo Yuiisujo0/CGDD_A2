@@ -373,6 +373,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 733fe6b144aeb8440b79f6a3bb509192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSplashScreen: 0
+  delayTime: 3
+  splashNextScene: MainMenu
   mainMenuScene: MainMenu
   settingsScene: Settings
   arScene: ARActivationScreen
@@ -914,6 +917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoAutoplay: 1
+  videoVolume: 1
 --- !u!4 &1228205020
 Transform:
   m_ObjectHideFlags: 0
@@ -1434,6 +1438,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 733fe6b144aeb8440b79f6a3bb509192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSplashScreen: 0
+  delayTime: 3
+  splashNextScene: MainMenu
   mainMenuScene: MainMenu
   settingsScene: Settings
   arScene: ARActivationScreen
