@@ -75,3 +75,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 Packages/*.tgz
 *.mp4
+Assets/Editor/Migration/com.ptc.vuforia.engine-11.4.4.tgz
