@@ -9,8 +9,17 @@ public class CloseOverlay : MonoBehaviour
     public GameObject overlayGroup;     // VideoGroup / InteriorGroup / StatsGroup
     public VideoPlayer videoPlayer;     // OPTIONAL
 
+    // Any scripts or colliders you want to disable
+    public MonoBehaviour[] interactiveScripts;
+
     public void Close()
     {
+        // Re-enable interactions
+        foreach(var script in interactiveScripts)
+        {
+            script.enabled = true;
+        }
+        
         // Stop video ONLY if this overlay has one
         if (videoPlayer != null)
         {

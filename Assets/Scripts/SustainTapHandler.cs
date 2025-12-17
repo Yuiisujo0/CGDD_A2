@@ -4,32 +4,49 @@ using UnityEngine;
 
 public class SustainTapHandler : MonoBehaviour
 {
-    public GameObject sustainGroup; // Assign your SustainGroup here
-    public GameObject otherGroup;   // Optional: objects to hide when showing stats
-    public PriceTapHandler priceTapHandler; // Assign your PriceTapHandler here
+    [Header("Panels")]
+    public GameObject sustainGroup;    // Sustainability panel
+    public GameObject otherGroup;      // Other objects to hide
+    public GameObject blocker;         // Full-screen transparent blocker
+
+    [Header("Price")]
+    public PriceTapHandler priceTapHandler; // Price script to hide
+
+    [Header("Interaction Scripts")]
+    public MonoBehaviour[] interactiveScripts; // Scripts to disable while sustain is open
 
     void OnMouseDown()
     {
-        // Hide the price if it's showing
-        if(priceTapHandler != null)
-            priceTapHandler.HidePriceOnOtherGroup();
+        // Always hide price when sustain is tapped
+        if(priceTapHandler != null && priceTapHandler.IsPriceVisible())
+            priceTapHandler.HidePrice();
 
-        // Hide other objects if needed
         if(otherGroup != null)
             otherGroup.SetActive(false);
 
-        // Show sustainability stats
         if(sustainGroup != null)
             sustainGroup.SetActive(true);
+
+        if(blocker != null)
+            blocker.SetActive(true);
+
+        // Disable interactions behind
+        foreach(var script in interactiveScripts)
+            script.enabled = false;
     }
 
-    // Call this from the Close button
     public void CloseSustain()
     {
         if(sustainGroup != null)
             sustainGroup.SetActive(false);
 
-        // Optionally show the other objects again
+        if(blocker != null)
+            blocker.SetActive(false);
+
+        // Re-enable other interactions
+        foreach(var script in interactiveScripts)
+            script.enabled = true;
+
         if(otherGroup != null)
             otherGroup.SetActive(true);
     }

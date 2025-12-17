@@ -44,7 +44,7 @@ public class PriceTapHandler : MonoBehaviour
         UpdatePriceText();
     }
 
-    void HidePrice()
+    public void HidePrice()
     {
         priceText.gameObject.SetActive(false);
         isVisible = false;
@@ -61,5 +61,10 @@ public class PriceTapHandler : MonoBehaviour
     {
         if(isVisible)
             HidePrice();
+    }
+
+    public bool IsPriceVisible()
+    {
+        return isVisible;
     }
 }
