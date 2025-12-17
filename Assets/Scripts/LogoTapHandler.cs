@@ -7,8 +7,9 @@ public class LogoTapHandler : MonoBehaviour
 {
     public GameObject productGroup;   // Lamp group
     public GameObject videoGroup;     // Video group
+    public GameObject videoBlocker;   // Quad blocker
     public VideoPlayer videoPlayer;   // Video on the plane
-    public PriceTapHandler priceTapHandler; // assign in inspector
+    public PriceTapHandler priceTapHandler;
 
     // Any scripts or colliders you want to disable
     public MonoBehaviour[] interactiveScripts;
@@ -16,25 +17,25 @@ public class LogoTapHandler : MonoBehaviour
     void OnMouseDown()
     {
         // Hide price if showing
-        if(priceTapHandler != null && priceTapHandler.IsPriceVisible())
+        if (priceTapHandler != null && priceTapHandler.IsPriceVisible())
             priceTapHandler.HidePrice();
 
+        // Show video panel
         productGroup.SetActive(false);
         videoGroup.SetActive(true);
 
-        // Disable other interactions
-        foreach(var script in interactiveScripts)
-        {
+        // Enable blocker
+        if (videoBlocker != null)
+            videoBlocker.SetActive(true);
+
+        // Disable other interactive scripts
+        foreach (var script in interactiveScripts)
             script.enabled = false;
-        }
 
-    
-        // Read autoplay setting
+        // Video autoplay
         bool autoplay = PlayerPrefs.GetInt("VideoAutoplay", 1) == 1;
-
         if (videoPlayer != null)
         {
-            // Set video volume from AppSettings
             if (AppSettings.Instance != null)
                 videoPlayer.SetDirectAudioVolume(0, AppSettings.Instance.videoVolume);
 
@@ -43,5 +44,22 @@ public class LogoTapHandler : MonoBehaviour
             else
                 videoPlayer.Pause();
         }
+    }
+
+    // Call this from Back button
+    public void CloseVideo()
+    {
+        videoGroup.SetActive(false);
+
+        if (videoBlocker != null)
+            videoBlocker.SetActive(false);
+
+        foreach (var script in interactiveScripts)
+            script.enabled = true;
+
+        productGroup.SetActive(true);
+
+        if (videoPlayer != null)
+            videoPlayer.Pause();
     }
 }
