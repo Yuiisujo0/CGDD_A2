@@ -205,9 +205,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 502889895}
-        m_TargetAssemblyTypeName: ArActivation, Assembly-CSharp
-        m_MethodName: ARActivation
+      - m_Target: {fileID: 502889897}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: OpenARActivation
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -266,10 +266,8 @@ GameObject:
   - component: {fileID: 502889894}
   - component: {fileID: 502889893}
   - component: {fileID: 502889892}
-  - component: {fileID: 502889895}
   - component: {fileID: 502889896}
   - component: {fileID: 502889897}
-  - component: {fileID: 502889898}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -351,18 +349,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &502889895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 502889891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a03adf477aae2b4ba9a984909c210f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &502889896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,21 +370,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 502889891}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db6bd6cda8c60514297601adf2a9c5f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 733fe6b144aeb8440b79f6a3bb509192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &502889898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 502889891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b7a67ef76690f84aa4d6c7b8cb8ad0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  isSplashScreen: 0
+  delayTime: 3
+  splashNextScene: MainMenu
+  mainMenuScene: MainMenu
+  settingsScene: Settings
+  arScene: ARActivationScreen
+  cameraScene: SampleScene
+  aboutScene: About
+  interactionInstructionScene: InteractionInstruction
 --- !u!1 &826739158
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,8 +1239,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 502889897}
-        m_TargetAssemblyTypeName: Settings, Assembly-CSharp
-        m_MethodName: settings
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: OpenSettings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1463,9 +1446,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 502889896}
-        m_TargetAssemblyTypeName: InteractionInstruction, Assembly-CSharp
-        m_MethodName: interactionInstruction
+      - m_Target: {fileID: 502889897}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: OpenInteractionInstruction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1495,7 +1478,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9ba53b121f430484d8cb25e7ad152e44, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0585e60f7e4078f4a8d6f350307847d5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1596,9 +1579,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 502889898}
-        m_TargetAssemblyTypeName: About, Assembly-CSharp
-        m_MethodName: about
+      - m_Target: {fileID: 502889897}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: OpenAbout
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
