@@ -32,6 +32,24 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InteriorScene1.unity
     guid: beb73bd47d20e16449444ecc019d7da8
+  - enabled: 1
+    path: Assets/Scenes/Hint01.unity
+    guid: ad51ccdfdc3689f49921b81715f21a71
+  - enabled: 1
+    path: Assets/Scenes/Hint02.unity
+    guid: 5447cf1b9914434408bc0938fa8c1993
+  - enabled: 1
+    path: Assets/Scenes/Hint03.unity
+    guid: 18d6be747257d3c498575a0f775c4703
+  - enabled: 1
+    path: Assets/Scenes/Hint05.unity
+    guid: 7c8f301c53fc20c4e8184cd24d620802
+  - enabled: 1
+    path: Assets/Scenes/VIewPoster.unity
+    guid: e16bcca0503f80543a2a2ea4c59e340f
+  - enabled: 1
+    path: Assets/Scenes/Hint04.unity
+    guid: c52559cb8ad107849992ec8c8db999ea
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 72b42887f11958f4989423b1d74acb6c, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: e706ef0957b1b1f43adb2d23e8acc389, type: 2}
