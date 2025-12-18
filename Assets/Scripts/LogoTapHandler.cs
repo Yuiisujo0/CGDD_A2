@@ -73,7 +73,13 @@ public class LogoTapHandler : MonoBehaviour
         videoGroup.SetActive(false);
 
         if (videoBlocker != null)
+        {
             videoBlocker.SetActive(false);
+
+            Collider col = videoBlocker.GetComponent<Collider>();
+            if (col != null)
+                col.enabled = false;
+        }
 
         foreach (var script in interactiveScripts)
             script.enabled = true;

@@ -6,24 +6,24 @@ using UnityEngine.SceneManagement;
 
 public class InteriorHotspotHandler : MonoBehaviour
 {
+    [Header("Scene to Load")]
+    public string sceneName = "InteriorScene1"; // Assign the scene in Inspector
+
     void Update()
     {
-        if (Input.touchCount == 0)
+        if (Input.touchCount == 0) 
             return;
 
         Touch touch = Input.GetTouch(0);
-        if (touch.phase != TouchPhase.Began)
+        if (touch.phase != TouchPhase.Began) 
             return;
 
         Ray ray = Camera.main.ScreenPointToRay(touch.position);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out RaycastHit hit))
         {
             if (hit.transform == transform)
             {
-                // Tap detected on this hotspot
-                SceneManager.LoadScene("InteriorScene");
+                SceneManager.LoadScene(sceneName);
             }
         }
     }

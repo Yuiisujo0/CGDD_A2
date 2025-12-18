@@ -382,6 +382,8 @@ MonoBehaviour:
   cameraScene: SampleScene
   aboutScene: About
   interactionInstructionScene: InteractionInstruction
+  loadingUI: {fileID: 0}
+  loadingSlider: {fileID: 0}
 --- !u!1 &826739158
 GameObject:
   m_ObjectHideFlags: 0
@@ -1447,6 +1449,8 @@ MonoBehaviour:
   cameraScene: SampleScene
   aboutScene: About
   interactionInstructionScene: InteractionInstruction
+  loadingUI: {fileID: 0}
+  loadingSlider: {fileID: 0}
 --- !u!4 &1832401069
 Transform:
   m_ObjectHideFlags: 0
