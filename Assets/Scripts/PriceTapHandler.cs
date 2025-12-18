@@ -18,11 +18,30 @@ public class PriceTapHandler : MonoBehaviour
             priceText.gameObject.SetActive(false); // Hide initially
     }
 
-    void OnMouseDown()
+    void Update()
     {
-        if(priceText == null) return;
+        if (Input.touchCount == 0 || priceText == null)
+            return;
 
-        if(!isVisible)
+        Touch touch = Input.GetTouch(0);
+        if (touch.phase != TouchPhase.Began)
+            return;
+
+        Ray ray = Camera.main.ScreenPointToRay(touch.position);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.transform == transform)
+            {
+                HandleTap();
+            }
+        }
+    }
+
+    void HandleTap()
+    {
+        if (!isVisible)
         {
             ShowPrice();
         }

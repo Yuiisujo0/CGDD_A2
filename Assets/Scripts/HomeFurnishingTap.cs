@@ -4,11 +4,32 @@ using UnityEngine;
 
 public class HomeFurnishingTap : MonoBehaviour
 {
-    void OnMouseDown()
+    void Update()
     {
-        if (ARManager.Instance != null)
+        // Only proceed if there is at least one touch
+        if (Input.touchCount == 0)
+            return;
+
+        Touch touch = Input.GetTouch(0);
+
+        // Only detect the start of a tap
+        if (touch.phase != TouchPhase.Began)
+            return;
+
+        // Raycast from screen touch position
+        Ray ray = Camera.main.ScreenPointToRay(touch.position);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
         {
-            ARManager.Instance.LoadInteriorScene();
+            // Check if THIS object was tapped
+            if (hit.transform == transform)
+            {
+                if (ARManager.Instance != null)
+                {
+                    ARManager.Instance.LoadInteriorScene();
+                }
+            }
         }
     }
 }
