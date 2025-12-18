@@ -14,7 +14,28 @@ public class LogoTapHandler : MonoBehaviour
     // Any scripts or colliders you want to disable
     public MonoBehaviour[] interactiveScripts;
 
-    void OnMouseDown()
+    void Update()
+    {
+        if (Input.touchCount == 0)
+            return;
+
+        Touch touch = Input.GetTouch(0);
+        if (touch.phase != TouchPhase.Began)
+            return;
+
+        Ray ray = Camera.main.ScreenPointToRay(touch.position);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.transform == transform)
+            {
+                HandleTap();
+            }
+        }
+    }
+
+    void HandleTap()
     {
         // Hide price if showing
         if (priceTapHandler != null && priceTapHandler.IsPriceVisible())

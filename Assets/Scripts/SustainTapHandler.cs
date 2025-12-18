@@ -15,39 +15,60 @@ public class SustainTapHandler : MonoBehaviour
     [Header("Interaction Scripts")]
     public MonoBehaviour[] interactiveScripts; // Scripts to disable while sustain is open
 
-    void OnMouseDown()
+    void Update()
+    {
+        if (Input.touchCount == 0)
+            return;
+
+        Touch touch = Input.GetTouch(0);
+        if (touch.phase != TouchPhase.Began)
+            return;
+
+        Ray ray = Camera.main.ScreenPointToRay(touch.position);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.transform == transform)
+            {
+                HandleTap();
+            }
+        }
+    }
+
+    void HandleTap()
     {
         // Always hide price when sustain is tapped
-        if(priceTapHandler != null && priceTapHandler.IsPriceVisible())
+        if (priceTapHandler != null && priceTapHandler.IsPriceVisible())
             priceTapHandler.HidePrice();
 
-        if(otherGroup != null)
+        if (otherGroup != null)
             otherGroup.SetActive(false);
 
-        if(sustainGroup != null)
+        if (sustainGroup != null)
             sustainGroup.SetActive(true);
 
-        if(blocker != null)
+        if (blocker != null)
             blocker.SetActive(true);
 
         // Disable interactions behind
-        foreach(var script in interactiveScripts)
+        foreach (var script in interactiveScripts)
             script.enabled = false;
     }
 
     public void CloseSustain()
     {
-        if(sustainGroup != null)
+        if (sustainGroup != null)
             sustainGroup.SetActive(false);
 
-        if(blocker != null)
+        if (blocker != null)
             blocker.SetActive(false);
 
         // Re-enable other interactions
-        foreach(var script in interactiveScripts)
+        foreach (var script in interactiveScripts)
             script.enabled = true;
 
-        if(otherGroup != null)
+        if (otherGroup != null)
             otherGroup.SetActive(true);
     }
 }
