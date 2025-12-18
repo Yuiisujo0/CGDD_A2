@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -112,5 +113,17 @@ public class UIManager : MonoBehaviour
     public void GoToPoster()
     {
         SceneManager.LoadSceneAsync("ViewPoster");
+    }
+
+    // backToPrevious.cs
+    public void BackToPrevious()
+    {
+        SceneManager.LoadSceneAsync("SampleScene");
+    }
+
+    // GoToSettings.cs
+    public void GoToSettings()
+    {
+        SceneManager.LoadSceneAsync("SettingsPrevious");
     }
 }
