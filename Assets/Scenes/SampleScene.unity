@@ -3553,6 +3553,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   productGroup: {fileID: 436200182}
   videoGroup: {fileID: 2072763339}
+  videoBlocker: {fileID: 0}
   videoPlayer: {fileID: 74487199}
   priceTapHandler: {fileID: 711193733}
   interactiveScripts:
